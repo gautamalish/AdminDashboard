@@ -23,7 +23,7 @@
                     width: 100px;
                     height: 100px;
                     border-radius: 50%;
-                    object-fit: contain;
+                    object-fit: cover;
                 }
             }
             .right{
@@ -32,7 +32,8 @@
                 form{
                     display: flex;
                     flex-wrap: wrap;
-                    gap: 20px;
+                    gap: 30px;
+                    justify-content: space-around;
 
                     .formInput{
                         width: 40%;
@@ -53,6 +54,16 @@
                             border-bottom: 1px solid gray;
                             outline: none;
                         }
+                    }
+                    button{
+                        width: 150px;
+                        padding: 10px;
+                        border: none;
+                        background-color: teal;
+                        color: white;
+                        font-weight: bold;
+                        cursor: pointer;
+                        margin-top: 10px;
                     }
                 }
             }

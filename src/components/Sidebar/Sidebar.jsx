@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./sidebar.scss"
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
@@ -12,11 +12,16 @@ import PsychologyIcon from '@mui/icons-material/Psychology';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { NavLink } from 'react-router-dom';
+import { DarkModeContext } from '../../context/DarkModeContext';
 function Sidebar() {
+  const {dispatch}=useContext(DarkModeContext)
   return (
     <div className='sidebar'>
-      <div className="top">
+      <div className="top" >
+        <NavLink to="/" style={{textDecoration:"none"}}>
         <span className="logo">Alishadmin</span>
+        </NavLink>
         </div>
         <hr />
       <div className="center">
@@ -27,14 +32,18 @@ function Sidebar() {
                 <span>Dashboard</span>
             </li>
             <p className='title'>LISTS</p>
+            <NavLink to="/users" style={{textDecoration:"none"}}>
             <li>
                 <PersonOutlineOutlinedIcon className='icon'/>
                 <span>Users</span>
             </li>
+            </NavLink>
+            <NavLink to="/products" style={{textDecoration:"none"}}>
             <li>
                 <ProductionQuantityLimitsOutlinedIcon className='icon'/>
                 <span>Products</span>
             </li>
+            </NavLink>
             <li>
                 <InventoryRoundedIcon className='icon'/>
                 <span>Orders</span>
@@ -78,8 +87,8 @@ function Sidebar() {
       </div>
       <hr />
       <div className="bottom">
-        <div className="colorOption"></div>
-        <div className="colorOption"></div>
+        <div className="colorOption" onClick={()=>dispatch({type:"Light"})}></div>
+        <div className="colorOption" onClick={()=>dispatch({type:"Dark"})}></div>
       </div>
     </div>
   )
